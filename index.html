@@ -33,7 +33,12 @@ body{ background:var(--bg); color:var(--text); font-family:'Noto Sans JP','DM Sa
 button{ font-family:inherit; }
 
 /* ══════════ HEADER ══════════ */
-#hdr{ flex-shrink:0; background:var(--hdr-bg); padding-top:env(safe-area-inset-top); position:relative; }
+#hdr{ flex-shrink:0; background:linear-gradient(90deg,#4cc3ee 0%,#8fdaf5 45%,#d4f1fb 80%,#f2fbfe 100%); padding-top:env(safe-area-inset-top); position:relative;
+  --hdr-text:#0d3b52; }
+#hdr .hdr-sub-inline{ opacity:.75; }
+#hdr .hdr-icon-btn{ border-color:rgba(13,59,82,.25); color:#0d3b52; background:rgba(255,255,255,.35); }
+#hdr .hdr-icon-btn:hover{ background:rgba(255,255,255,.7); color:#0d3b52; }
+#hdr .rank-pill{ border-color:rgba(13,59,82,.25); background:rgba(255,255,255,.45); }
 #hdr::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,var(--accent) 0 70%,var(--lime) 70% 100%); }
 .hdr-main{ display:flex; align-items:center; justify-content:space-between; padding:16px 0 16px 24px; gap:12px; }
 .hdr-title-block{ display:flex; flex-direction:column; gap:7px; min-width:0; cursor:pointer; }
@@ -2610,7 +2615,7 @@ window.APEX_IMG={"map": {"4スト": "en:Four-stroke engine", "2スト": "en:Two-
    ・コンテンツ：window.APEX_DATA = { units, q, ox, gl }
    ・記録：localStorage（この端末のみ）
    ═══════════════════════════════════════════════════════════ */
-const VERSION='2026-10-23b';
+const VERSION='2026-10-23c';
 const LS={ get(k,d){ try{ const v=JSON.parse(localStorage.getItem(k)); return v==null?d:v; }catch(e){ return d; } },
            set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ toast('保存できませんでした',true); return false; } } };
 const K={ hist:'ap_hist', ox:'ap_ox', keep:'ap_keep', exams:'ap_exams', imports:'ap_imports', set:'ap_set', last:'ap_last' };
